@@ -31,8 +31,9 @@ incrementor.toString = () => {
   return count;
 };
 
-
-const asyncIncrementor = () => {};
+let acync_inc = 0;
+const asyncIncrementor = () => {
+};
 const createIncrementer = () => {};
 
 // return same argument not earlier than in one second, and not later, than in two
@@ -43,12 +44,27 @@ const returnBackInSecond = (param) => {
     }, 1000);
 });
 };
-const getDeepPropertiesCount = () => {};
+const getDeepPropertiesCount = (obj) => {
+  let str = JSON.stringify(obj);
+  let count = 0;
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === '{') {
+      count++;
+    }
+  }
+  return --count;
+};
 const createSerializedObject = () => {
   return new Object((JSON.stringify({})));
 };
 const toBuffer = () => {};
-const sortByProto = () => {};
+
+const sortByProto = (arrProto) => {
+  arrProto.sort((a, b) => {
+    return a - b;
+  });
+  return arrProto;
+};
 
 exports.createEnumerableProperty = createEnumerableProperty;
 exports.createNotEnumerableProperty = createNotEnumerableProperty;
